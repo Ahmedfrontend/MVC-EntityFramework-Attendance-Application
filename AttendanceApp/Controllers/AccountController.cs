@@ -26,7 +26,7 @@ namespace AttendanceApp.Controllers
 			if (user.Count() == 0)
 			{
 
-				Employee Employee = new Employee {FirstName = "admin" , LastName = "admin",BirthDate= Convert.ToDateTime("12/9/1985"),salary=0, Email = "admin@admin.com", Password = Password, ConfirmPassword = Password, UserRoles = "Admin" };
+				Employee Employee = new Employee {FirstName = "admin" , LastName = "admin",BirthDate= Convert.ToDateTime("12/9/1985"),salary=0, Email = AdminEmail, Password = Password, ConfirmPassword = Password, UserRoles = "Admin" };
 				db.Employee.Add(Employee);
 				db.SaveChanges();
 			}
