@@ -1,0 +1,115 @@
+﻿
+
+@model IEnumerable<AttendanceApp.Models.Attendance>
+
+@using Newtonsoft.Json;
+@using AttendanceApp.Models;
+@using System;
+@using System.Globalization;
+
+
+
+@{
+	ViewBag.Title = "Index";
+	Employee userinfo = JsonConvert.DeserializeObject<Employee>(User.Identity.Name);
+}
+
+<h2>My Attendance</h2>
+
+
+<table class="table">
+    <tr>
+       
+
+		<th>
+			@Html.DisplayNameFor(model => model.DateOfDay)
+		</th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.ComingTime)
+        </th>
+     
+        <th>
+            @Html.DisplayNameFor(model => model.LeaveTime)
+        </th>
+		@{
+			if (userinfo != null)
+			{
+
+
+				if (userinfo.UserRoles == "Admin")
+				{
+					<th></th>
+
+				}
+
+
+			}
+		}
+
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        
+		<td>
+			@Html.DisplayFor(modelItem => item.DateOfDay)
+		</td>
+
+        <td>
+			@item.ComingTime
+
+
+
+        </td>
+    
+        <td>
+			@item.LeaveTime
+
+	
+        </td>
+
+
+		@{
+			if (userinfo != null)
+			{
+
+
+				if (userinfo.UserRoles == "Admin")
+				{
+					<td>
+						@Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+
+						@Html.ActionLink("Delete", "Delete", new { id = item.ID })
+					</td>
+
+				}
+
+
+			}
+		}
+
+       
+    </tr>
+}
+
+</table>
+
+
+
+@helper DisplayTime(string time)
+{
+
+
+
+DateTime dt = Convert.ToDateTime(time);
+
+
+	<span>
+		@dt.TimeOfDay.ToString()
+
+	</span>
+
+
+}

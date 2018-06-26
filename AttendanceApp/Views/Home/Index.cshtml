@@ -1,0 +1,79 @@
+﻿@using AttendanceApp.Models
+@using System;
+@using System.Globalization;
+
+
+@model AttendanceViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+<div class="jumbotron">
+    <h1>Attendance</h1>
+	
+
+
+@using (Html.BeginForm())
+{
+	@Html.AntiForgeryToken()
+
+
+
+
+		
+
+			if (Model.isLeave == true)
+			{
+				
+					<div class="form-group">
+
+						<div class="well well-lg">
+
+							Thank you so much to login and log out  !
+						</div>
+					</div>
+
+			}
+			else
+			{
+				if (Model.iscoming == true)
+				{
+					<p class="lead">Sing out and have a good leaving ! </p>
+					<div class="form-group">
+
+						<input type="submit" value="Leaving Today" class="btn btn-primary btn-lg" />
+
+					</div>
+				}
+				else
+				{
+					<p class="lead">Sign in your comming now and i hope you come in right time </p>
+						<div class="form-group">
+
+							<input type="submit" value="Attendance Today" class="btn btn-primary btn-lg" />
+
+							</div>
+
+							}
+
+
+							}
+
+
+
+							
+
+
+
+
+
+						
+
+
+
+				}
+</div>
+

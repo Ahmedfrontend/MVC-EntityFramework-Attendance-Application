@@ -1,0 +1,158 @@
+﻿@model IEnumerable<AttendanceApp.Models.Attendance>
+@using AttendanceApp.Models;
+@using AttendanceApp.DAL;
+@using PagedList.Mvc;
+
+
+
+@{
+	ViewBag.Title = "All";
+
+	List<Employee> Employees = TempData["Employees"] as List<Employee>;
+	string startDate = TempData["Start"] as string;
+	string endDate = TempData["end"] as string;
+	
+
+
+
+}
+
+<h2>Attendance</h2>
+
+
+
+@using (Html.BeginForm())
+{
+	@Html.AntiForgeryToken()
+
+	<div class="row">
+		<div class="form-group">
+			<div class="col-md-12">
+				Select Employee
+			</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group">
+
+				<div class="col-md-3">
+					@Html.DropDownList("Employee",
+						(IEnumerable<SelectListItem>)TempData["Employees"],
+						"All Employee",
+						new { @class = "form-control", onchange = "this.form.submit();" })
+				</div>
+				<div class="col-md-3">
+					<input id="start" name="start" class="form-control datapiker" placeholder="Start" value="@startDate" />
+					
+					</div>
+				<div class="col-md-3">
+
+					<input class="form-control datapiker"  id="end" name="end" placeholder="End" value="@endDate" />
+				</div>
+
+				<div class="col-md-3">
+
+					<input type="submit" value="Search" class="btn btn-default" />
+					</div>
+
+
+				</div>
+		</div>
+
+
+
+
+
+
+			}
+
+
+
+
+			<table class="table" style="margin-top:10px;">
+				<tr>
+					<th>
+						@Html.DisplayNameFor(model => model.ComingTime)
+					</th>
+					<th>
+						@Html.DisplayNameFor(model => model.DateOfDay)
+					</th>
+					<th>
+						@Html.DisplayNameFor(model => model.LeaveTime)
+					</th>
+					<th>
+						Employee Name
+						</th>
+<th></th>
+				</tr>
+
+				@foreach (var item in Model)
+				{
+					<tr>
+						<td>
+							@Html.DisplayFor(modelItem => item.ComingTime)
+						</td>
+						<td>
+							@Html.DisplayFor(modelItem => item.DateOfDay)
+						</td>
+						<td>
+							@Html.DisplayFor(modelItem => item.LeaveTime)
+						</td>
+						<td>
+							@DispayEmployee(item.EmployeeID)
+
+						</td>
+						
+						<td>
+							
+
+							@Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+						
+							@Html.ActionLink("Delete", "Delete", new { id = item.ID })
+						</td>
+					</tr>
+				}
+
+			</table>
+
+
+
+@section Scripts
+{
+	<script type="text/javascript">
+        $(function () {
+            $(".datapiker").datetimepicker({
+                format: 'd/m/Y'
+            });
+        });
+
+	</script>
+}
+
+@helper  DispayEmployee(int userID){
+
+
+List<Employee> Employees = TempData["EmployeesNames"] as List<Employee>;
+string username = "";
+
+foreach (var E in Employees)
+{
+
+	if (E.ID == userID)
+	{
+		username = E.FirstName + " " + E.LastName;
+
+	}
+
+
+
+}
+
+
+<span>
+	@username
+
+</span>
+
+
+}
