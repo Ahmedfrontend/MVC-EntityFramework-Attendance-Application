@@ -73,3 +73,8 @@ I:\Learn\MVC\AttendanceApp\AttendanceApp\bin\PagedList.dll
 I:\Learn\MVC\AttendanceApp\AttendanceApp\bin\PagedList.Mvc.dll
 I:\Learn\MVC\AttendanceApp\AttendanceApp\bin\PagedList.xml
 I:\Learn\MVC\AttendanceApp\AttendanceApp\bin\PagedList.Mvc.xml
+I:\Learn\MVC\AttendanceApp\AttendanceApp\obj\Debug\AttendanceApp.Migrations.InitialCreate.resources
+I:\Learn\MVC\AttendanceApp\AttendanceApp\obj\Debug\AttendanceApp.csproj.GenerateResource.Cache
+C:\Users\Ahmed\Downloads\MVC-EntityFramework-Attendance-Application-master\AttendanceApp\obj\Debug\AttendanceApp.csprojResolveAssemblyReference.cache
+C:\Users\Ahmed\Downloads\MVC-EntityFramework-Attendance-Application-master\AttendanceApp\obj\Debug\AttendanceApp.dll
+C:\Users\Ahmed\Downloads\MVC-EntityFramework-Attendance-Application-master\AttendanceApp\obj\Debug\AttendanceApp.pdb
