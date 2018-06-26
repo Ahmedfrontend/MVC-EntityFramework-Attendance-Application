@@ -1,8 +1,8 @@
 ##  Attendance Application
-===
-**Note: For ASP.NET MVC 5 , EntityFramework.6.2.0 **
 
-Quickly setup 
+Note: For ASP.NET MVC 5 , EntityFramework.6.2.0 
+
+ 
 
 ## Installation 
 
