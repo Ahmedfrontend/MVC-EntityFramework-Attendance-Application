@@ -12,7 +12,6 @@ namespace AttendanceApp.DAL
 
 		public EmployeeDBContext() : base("DefaultConnection")
 		{
-
 		}
 
 		public DbSet<Employee> Employee { get; set; }
